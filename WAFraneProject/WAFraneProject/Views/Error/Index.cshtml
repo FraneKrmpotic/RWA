@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+    string err = ViewBag.err as string;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainContainer">
+        <h1>Error</h1>
+        <hr />
+        <div class="alert alert-warning">
+            <p>@err</p>
+        </div>
+        <hr />
+        <br />
+</div>
+</body>
+</html>

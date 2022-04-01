@@ -1,0 +1,31 @@
+﻿@{
+    string tab = ViewBag.Tab as string;
+}
+
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#firstTab">View all</a></li>
+    <li><a data-toggle="tab" href="#secondTab">Add new</a></li>
+</ul>
+
+<div class="jumbotron tab-content">
+    @switch (tab)
+    {
+        case "category":
+            <div id="firstTab" class="tab-pane fade in active">@Html.Action("ViewAllCategories")</div>
+            <div id="secondTab" class="tab-pane fade in">@Html.Action("AddOrEditCategory")</div>
+            break;
+        case "subcategory":
+            <div id="firstTab" class="tab-pane fade in active">@Html.Action("ViewAllSubcategories")</div>
+            <div id="secondTab" class="tab-pane fade in">@Html.Action("AddOrEditSubcategory")</div>
+            break;
+        case "product":
+            <div id="firstTab" class="tab-pane fade in active">@Html.Action("ViewAllProducts")</div>
+            <div id="secondTab" class="tab-pane fade in">@Html.Action("AddOrEditProduct")</div>
+            break;
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}

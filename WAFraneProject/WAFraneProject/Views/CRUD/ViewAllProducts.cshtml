@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WAFraneProject.Models.Product>
+
+
+
+
+<table class="table" style="border:solid #FFCCFF;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfProducts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinimalAmountInStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceWithoutPDV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subcategory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfProducts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MinimalAmountInStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceWithoutPDV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subcategory)
+        </td>
+        <td>
+            <a class="btn btn-info btn-sm" onclick="Edit('@Url.Action("AddOrEditProduct","CRUD", new { id=item.IDProduct})')"><i class="glyphicon glyphicon-pencil"></i></a>
+            <a class="btn btn-warning btn-sm" onclick="Delete('@Url.Action("DeleteProduct","CRUD", new { id=item.IDProduct})')"><i class="glyphicon glyphicon-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

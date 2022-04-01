@@ -1,0 +1,39 @@
+﻿@model WAFraneProject.Models.Receipt
+
+<div class="receipt">
+    <table class="table table-striped table-sm">
+        <tr>
+            <td>Date</td>
+            <td>@Model.Date</td>
+        </tr>
+        <tr>
+            <td>Comment</td>
+            <td>@Model.Comment</td>
+        </tr>
+        <tr>
+            <td>Credit card</td>
+            <td>@Model.CardNumber</td>
+        </tr>
+        <tr>
+            <td>Commercialist</td>
+            <td>@Model.CommercialistName</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Model.Price</td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td>@Model.Product</td>
+        </tr>
+        <tr>
+            <td>Subcategory</td>
+            <td>@Model.Subcategory</td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>@Model.Category</td>
+        </tr>
+    </table>
+</div>
+

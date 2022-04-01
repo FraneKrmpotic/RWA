@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WAFraneProject.Models.Receipt>
+@{
+    ViewBag.Title = "ShowAll";
+}
+
+<div class=" jumbotron">
+    <h2>Receipts</h2>
+
+    <div class="receiptContainer">
+        @foreach (var receipt in Model)
+        {
+            @Html.Partial(partialViewName: "_Receipt", model: receipt);
+        }
+    </div>
+</div>
+
+
+

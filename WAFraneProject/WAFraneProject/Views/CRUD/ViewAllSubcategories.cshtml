@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WAFraneProject.Models.Subcategory>
+
+
+
+<table class="table" style="border:solid #FFCCFF;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            <a class="btn btn-info btn-sm" onclick="Edit('@Url.Action("AddOrEditSubcategory","CRUD", new { id=item.ID})')"><i class="glyphicon glyphicon-pencil"></i></a>
+            <a class="btn btn-warning btn-sm" onclick="Delete('@Url.Action("DeleteSubcategory","CRUD", new { id=item.ID})')"><i class="glyphicon glyphicon-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

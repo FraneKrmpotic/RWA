@@ -1,0 +1,80 @@
+﻿@model WAFraneProject.Models.ViewModel.ShowReceiptDetailsVM
+@using WAFraneProject.Models
+
+@{ 
+    var idReceipt = ViewBag.ReceiptID as string;
+}
+
+    <div class="row" style="text-align:center; color:white; font-size:3rem; background-color:#957DAD;">
+        Receipt number: @idReceipt
+    </div>
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem; background-color:#E0BBE4;">
+                    <h3>Commercialist</h3>
+                    <div>
+                        <h5><strong>Id:</strong> @Model.Commercialist.ID</h5>
+                        <h5><strong>Full name:</strong> @Model.Commercialist.FirstName @Model.Commercialist.LastName</h5>
+                        <h5><strong>Works full time:</strong>@Model.Commercialist.FullTime.ToString()</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem; background-color:#FEC8D8;">
+                    <h3>Credit card</h3>
+                    <div>
+                        <h5><strong>Id:</strong> @Model.CreditCard.ID</h5>
+                        <h5><strong>Card number:</strong> @Model.CreditCard.Number</h5>
+                        <h5><strong>Card type:</strong> @Model.CreditCard.Type</h5>
+                        <h5><strong>Expiration month:</strong> @Model.CreditCard.ExpirationMonth</h5>
+                        <h5><strong>Expiration year:</strong> @Model.CreditCard.ExpirationYear</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <table class="table table-hover" style="border:solid #FFCCFF; text-align:center;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">
+                                <a class="btn btn-info" href="@Url.Action("Index","CRUD", new { tab="product"})" data-bs-toggle="tooltip" data-bs-placement="top" title="Click me to add,update or delete a product!">Product</a>
+                            </th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">PricePerPiece</th>
+                            <th scope="col">Dicount</th>
+                            <th scope="col">NumberOfProducts</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">MinimalAmountInStock</th>
+                            <th scope="col">PriceWithoutPDV</th>
+                            <th scope="col">
+                                <a class="btn btn-info" href="@Url.Action("Index","CRUD", new { tab="subcategory"})" data-bs-toggle="tooltip" data-bs-placement="top" title="Click me to add,update or delete a subcategory!">Subcategory</a>
+                            </th>
+                            <th scope="col">
+                                <a class="btn btn-info" href="@Url.Action("Index","CRUD", new { tab="category"})" data-bs-toggle="tooltip" data-bs-placement="top" title="Click me to add,update or delete a category!">Category</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ItemDetails item in Model.ItemDetails)
+                        {
+                            <tr>
+                                <td>@item.Product</td>
+                                <td>@item.Amount</td>
+                                <td>@item.PricePerPiece</td>
+                                <td>@item.Dicount</td>
+                                <td>@item.NumberOfProducts</td>
+                                <td>@item.Color</td>
+                                <td>@item.MinimalAmountInStock</td>
+                                <td>@item.PriceWithoutPDV</td>
+                                <td>@item.Subcategory</td>
+                                <td>@item.Category</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
